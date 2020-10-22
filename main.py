@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-
+import time 
 import argparse
 
 import os
@@ -43,13 +43,14 @@ def save_checkpoint(best_acc, model, optimizer, args, epoch):
     }, os.path.join('checkpoints', 'checkpoint_model_best.pth'))
 
 
-def _train(epoch, train_loader, model, optimizer, criterion, args):
+def _train(epoch, train_loader, model, optimizer, criterion, args):    
     model.train()
-
+    tic_epoch = time.time()
     losses = 0.
     acc = 0.
     total = 0.
     for idx, (data, target) in enumerate(train_loader):
+        tic_iter = time.time()
         if args.cuda:
             data, target = data.cuda(), target.cuda()
 
@@ -63,12 +64,19 @@ def _train(epoch, train_loader, model, optimizer, criterion, args):
         losses += loss
         loss.backward()
         optimizer.step()
+        toc_iter = time.time()
+        dur_iter = toc_iter - tic_iter
+        iter_size = len(train_loader)
+        
+        
 
         if idx % args.print_intervals == 0 and idx != 0:
-            print('[Epoch: {0:4d}], Loss: {1:.3f}, Acc: {2:.3f}, Correct {3} / Total {4}'.format(epoch,
-                                                                                                 losses / (idx + 1),
-                                                                                                 acc / total * 100.,
-                                                                                                 acc, total))
+            print('\n[Epoch: {0:4d}] {} / {} | Loss: {1:.3f}, Acc: {2:.3f}, Correct {3} / Total {4} | {:4.2f}sec/iter'.format(
+                epoch, idx, iter_size, losses / (idx + 1), acc / total * 100., acc, total, dur_iter), end='' )
+    toc_epoch = time.time()  
+    dur_epoch = toc_epoch - tic_epoch
+    print(' {:4.2}sec/epoch'.format(dur_epoch), end='')
+    
 
 
 def _eval(epoch, test_loader, model, args):
@@ -76,14 +84,17 @@ def _eval(epoch, test_loader, model, args):
 
     acc = 0.
     with torch.no_grad():
-        for data, target in test_loader:
+        tic_eval = time.time()        
+        for data, target in test_loader:            
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
             output = model(data)
             _, pred = F.softmax(output, dim=-1).max(1)
 
             acc += pred.eq(target).sum().item()
-        print('[Epoch: {0:4d}], Acc: {1:.3f}'.format(epoch, acc / len(test_loader.dataset) * 100.))
+        toc_eval = time.time()
+        dur_eval = toc_eval - tic_eval            
+        print('\n[Epoch: {0:4d}], Acc: {1:.3f} {:4.2f}sec/eval'.format(epoch, acc / len(test_loader.dataset) * 100., dur_eval), end='')
 
     return acc / len(test_loader.dataset) * 100.
 
@@ -134,6 +145,7 @@ def main(args):
     if args.cuda:
         model = model.cuda()
 
+    print("start iteration")        
     if not args.evaluation:
         criterion = nn.CrossEntropyLoss()
         lr_scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=2, eta_min=0.00001)
@@ -145,9 +157,9 @@ def main(args):
             if global_acc < best_acc:
                 global_acc = best_acc
                 save_checkpoint(best_acc, model, optimizer, args, epoch)
-
+            print('Learning Rate: {}'.format(lr_scheduler.get_last_lr()), end='')
             lr_scheduler.step()
-            print('Current Learning Rate: {}'.format(lr_scheduler.get_last_lr()))
+            print(' --> {}'.format(lr_scheduler.get_last_lr()))
     else:
         _eval(start_epoch, test_loader, model, args)
 
