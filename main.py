@@ -30,10 +30,11 @@ def parse_args(parser):
 
 def save_checkpoint(best_acc, model, optimizer, args, epoch):
     print('Best Model Saving...')
-    if args.device_num > 1:
-        model_state_dict = model.module.state_dict()
-    else:
-        model_state_dict = model.state_dict()
+    #if args.device_num > 1:
+    #    model_state_dict = model.module.state_dict()
+    #else:
+    #    model_state_dict = model.state_dict()
+    model_state_dict = model.state_dict()    
 
     torch.save({
         'model_state_dict': model_state_dict,
