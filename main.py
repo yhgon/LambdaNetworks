@@ -78,7 +78,7 @@ def _train(epoch, train_loader, model, optimizer, criterion, args):
             print( str1, str2, str3, str4, end='' )
     toc_epoch = time.time()  
     dur_epoch = toc_epoch - tic_epoch
-    print(' {:4.2}sec/epoch'.format(dur_epoch), end='')
+    print(' {:4.2f}sec/epoch'.format(dur_epoch), end='')
     
 
 
@@ -167,9 +167,9 @@ def main(args):
             if global_acc < best_acc:
                 global_acc = best_acc
                 save_checkpoint(best_acc, model, optimizer, args, epoch)
-            print(' | Learning Rate: {}'.format(lr_scheduler.get_last_lr()), end='')
+            print(' | Learning Rate: {:5.4}'.format(lr_scheduler.get_last_lr()), end='')
             lr_scheduler.step()
-            print(' --> {}'.format(lr_scheduler.get_last_lr()))
+            print(' --> {:5.4}'.format(lr_scheduler.get_last_lr()))
     else:
         _eval(start_epoch, test_loader, model, args)
 
