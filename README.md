@@ -96,7 +96,7 @@ start iteration
 [Epoch: 14 200/391]  Loss: 2.3195, Acc: 10.3467  |  Correct  2662/25728   | 0.13sec/iter  12.86sec/100iter 
 [Epoch: 14 300/391]  Loss: 2.3203, Acc: 10.1900  |  Correct  3926/38528   | 0.13sec/iter  12.78sec/100iter  52.55sec/epoch | eval | Acc: 10.140  |  1014 / 10000   | 3.85sec/eval | Learning Rate:[0.09455087117679745] -->[0.0904518046337755]
 
-...
+... 
 
 [Epoch:306 100/391]  Loss: 0.0170, Acc: 99.4585  |  Correct 12858/12928   | 0.13sec/iter  12.63sec/100iter 
 [Epoch:306 200/391]  Loss: 0.0169, Acc: 99.4520  |  Correct 25587/25728   | 0.13sec/iter  12.67sec/100iter 
