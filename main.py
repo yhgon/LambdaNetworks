@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import time 
 import argparse
+import numpy as np
 
 import os
 from preprocess import load_data
@@ -11,8 +12,9 @@ from model import ResNet18, ResNet50, LambdaResNet18,  LambdaResNet50, LambdaRes
 
 
 def parse_args(parser):
+    parser.add_argument('--seed',            type=int,   default=1111, help='random seed')    
     parser.add_argument('--batch_size',      type=int,   default=128)
-    parser.add_argument('--num_workers',     type=int,   default=4)
+    parser.add_argument('--num_workers',     type=int,   default=1)
     parser.add_argument('--lr',              type=float, default=0.1)
     parser.add_argument('--weight_decay',    type=float, default=1e-4)
     parser.add_argument('--momentum',        type=float, default=0.9)
@@ -109,6 +111,19 @@ def _eval(epoch, test_loader, model, args):
 
 
 def main(args):
+
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+    torch.multiprocessing.set_start_method('spawn') # https://github.com/pytorch/pytorch/issues/40403
+    if torch.cuda.is_available():
+        if not args.cuda:
+            print('WARNING: You have a CUDA device, so you should probably run with --cuda')
+        else:
+            torch.set_default_tensor_type('torch.cuda.FloatTensor')
+            torch.cuda.manual_seed_all(args.seed)
+
+    device = torch.device('cuda' if args.cuda else 'cpu') # to solve 
+
     train_loader, test_loader = load_data(args)
 
     if args.model_name == 'ResNet18' :
