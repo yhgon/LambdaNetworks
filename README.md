@@ -1,5 +1,7 @@
 # LambdaNetworks: Modeling long-range Interactions without Attention
 
+Community Pytorch implementation for <a herf="https://openreview.net/pdf?id=xTJEN-ggl1b" > LambdaNetworks: Modeling long-range Interactions without Attention</a>. the code is based on <a href="https://github.com/leaderj1001/LambdaNetworks"> leaderj1001 </a> and maintained by Hyungon Ryu (NVIDIA AI Tech. Center).  
+
 ## Experimnets (CIFAR10)
 
 | Model | k | h | u | m | Params (M) | Acc (%) |
@@ -46,7 +48,7 @@ $cd LambdaNetworks
 $python main.py --model_name LambdaResNet50
 ```
 
-## few train logs
+## few train logs for LambdaResNet50 with CIFAR10
 ```bash
 LambdaResNet50 Model Parameters: 15.00 M Params
 load checkpoint if needed
@@ -66,6 +68,33 @@ start iteration
 [Epoch:  5 100/391]  Loss: 2.3285, Acc: 10.0557  |  Correct  1300/12928   | 0.13sec/iter  13.12sec/100iter 
 [Epoch:  5 200/391]  Loss: 2.3313, Acc: 10.1096  |  Correct  2601/25728   | 0.13sec/iter  13.06sec/100iter 
 [Epoch:  5 300/391]  Loss: 2.3316, Acc: 10.1770  |  Correct  3921/38528   | 0.13sec/iter  12.77sec/100iter  52.54sec/epoch | eval | Acc: 10.170  |  1017 / 10000   | 3.85sec/eval | Best Model Saving... | Learning Rate:[0.0654543046337755] -->[0.05000500000000001]
+[Epoch:  6 100/391]  Loss: 2.3258, Acc: 10.1949  |  Correct  1318/12928   | 0.13sec/iter  12.84sec/100iter 
+[Epoch:  6 200/391]  Loss: 2.3225, Acc: 10.4128  |  Correct  2679/25728   | 0.13sec/iter  12.83sec/100iter 
+[Epoch:  6 300/391]  Loss: 2.3216, Acc: 10.2393  |  Correct  3945/38528   | 0.13sec/iter  12.89sec/100iter  52.60sec/epoch | eval | Acc: 10.010  |  1001 / 10000   | 3.87sec/eval | Learning Rate:[0.05000500000000001] -->[0.03455569536622451]
+[Epoch:  7 100/391]  Loss: 2.3331, Acc:  9.9087  |  Correct  1281/12928   | 0.13sec/iter  12.86sec/100iter 
+[Epoch:  7 200/391]  Loss: 2.3250, Acc:  9.7637  |  Correct  2512/25728   | 0.13sec/iter  12.87sec/100iter 
+[Epoch:  7 300/391]  Loss: 2.3213, Acc:  9.7877  |  Correct  3771/38528   | 0.13sec/iter  12.86sec/100iter  52.53sec/epoch | eval | Acc: 10.170  |  1017 / 10000   | 3.87sec/eval | Learning Rate:[0.03455569536622451] -->[0.020618676311637812]
+[Epoch:  8 100/391]  Loss: 2.3109, Acc:  9.6071  |  Correct  1242/12928   | 0.13sec/iter  13.09sec/100iter 
+[Epoch:  8 200/391]  Loss: 2.3124, Acc: 10.0513  |  Correct  2586/25728   | 0.13sec/iter  12.83sec/100iter 
+[Epoch:  8 300/391]  Loss: 2.3113, Acc: 10.0654  |  Correct  3878/38528   | 0.13sec/iter  12.74sec/100iter  52.60sec/epoch | eval | Acc: 10.130  |  1013 / 10000   | 3.89sec/eval | Learning Rate:[0.020618676311637812] -->[0.009558195366224508]
+[Epoch:  9 100/391]  Loss: 2.3083, Acc: 10.0015  |  Correct  1293/12928   | 0.13sec/iter  12.77sec/100iter 
+[Epoch:  9 200/391]  Loss: 2.3075, Acc: 10.2612  |  Correct  2640/25728   | 0.13sec/iter  12.81sec/100iter 
+[Epoch:  9 300/391]  Loss: 2.3073, Acc: 10.3379  |  Correct  3983/38528   | 0.13sec/iter  12.98sec/100iter  52.48sec/epoch | eval | Acc: 10.140  |  1014 / 10000   | 3.87sec/eval | Learning Rate:[0.009558195366224508] -->[0.0024569294678237993]
+[Epoch: 10 100/391]  Loss: 2.3077, Acc: 10.4579  |  Correct  1352/12928   | 0.13sec/iter  12.92sec/100iter 
+[Epoch: 10 200/391]  Loss: 2.3064, Acc: 10.4322  |  Correct  2684/25728   | 0.13sec/iter  12.84sec/100iter 
+[Epoch: 10 300/391]  Loss: 2.3057, Acc: 10.3042  |  Correct  3970/38528   | 0.13sec/iter  13.11sec/100iter  52.44sec/epoch | eval | Acc: 10.020  |  1002 / 10000   | 3.87sec/eval | Learning Rate:[0.0024569294678237993] -->[0.1]
+[Epoch: 11 100/391]  Loss: 2.3245, Acc: 10.0170  |  Correct  1295/12928   | 0.13sec/iter  12.90sec/100iter 
+[Epoch: 11 200/391]  Loss: 2.3299, Acc: 10.1718  |  Correct  2617/25728   | 0.13sec/iter  12.80sec/100iter 
+[Epoch: 11 300/391]  Loss: 2.3383, Acc: 10.0914  |  Correct  3888/38528   | 0.13sec/iter  12.80sec/100iter  52.42sec/epoch | eval | Acc: 10.130  |  1013 / 10000   | 3.85sec/eval | Learning Rate:[0.1] -->[0.09938447858805392]
+[Epoch: 12 100/391]  Loss: 2.3278, Acc:  9.9551  |  Correct  1287/12928   | 0.13sec/iter  12.91sec/100iter 
+[Epoch: 12 200/391]  Loss: 2.3273, Acc: 10.1407  |  Correct  2609/25728   | 0.13sec/iter  12.91sec/100iter 
+[Epoch: 12 300/391]  Loss: 2.3268, Acc: 10.2523  |  Correct  3950/38528   | 0.13sec/iter  12.81sec/100iter  52.55sec/epoch | eval | Acc: 10.120  |  1012 / 10000   | 3.87sec/eval | Learning Rate:[0.09938447858805392] -->[0.09755307053217621]
+[Epoch: 13 100/391]  Loss: 2.3684, Acc:  9.5606  |  Correct  1236/12928   | 0.13sec/iter  12.89sec/100iter 
+[Epoch: 13 200/391]  Loss: 2.3870, Acc:  9.5771  |  Correct  2464/25728   | 0.13sec/iter  12.90sec/100iter 
+[Epoch: 13 300/391]  Loss: 2.3653, Acc:  9.7306  |  Correct  3749/38528   | 0.13sec/iter  13.10sec/100iter  52.43sec/epoch | eval | Acc: 10.070  |  1007 / 10000   | 3.86sec/eval | Learning Rate:[0.09755307053217621] -->[0.09455087117679745]
+[Epoch: 14 100/391]  Loss: 2.3200, Acc: 10.3032  |  Correct  1332/12928   | 0.13sec/iter  12.98sec/100iter 
+[Epoch: 14 200/391]  Loss: 2.3195, Acc: 10.3467  |  Correct  2662/25728   | 0.13sec/iter  12.86sec/100iter 
+[Epoch: 14 300/391]  Loss: 2.3203, Acc: 10.1900  |  Correct  3926/38528   | 0.13sec/iter  12.78sec/100iter  52.55sec/epoch | eval | Acc: 10.140  |  1014 / 10000   | 3.85sec/eval | Learning Rate:[0.09455087117679745] -->[0.0904518046337755]
 ```
 
 
