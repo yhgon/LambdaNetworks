@@ -99,7 +99,7 @@ def _eval(epoch, test_loader, model, args):
         dur_eval = toc_eval - tic_eval     
         
 
-        str1 = 'eval | Acc: {:.3f} '.format( acc / len(test_loader.dataset) * 100.) 
+        str1 = ' | eval | Acc: {:.3f} '.format( acc / len(test_loader.dataset) * 100.) 
         str2 = '| {:5d} / {:5d} '.format(  int(acc), len(test_loader.dataset) ) 
         str3 =' | {:4.2f}sec/eval'.format(dur_eval) 
         
