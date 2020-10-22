@@ -49,7 +49,7 @@ $python main.py --model_name LambdaResNet50
 ```
 
 ## few train logs for LambdaResNet50 with CIFAR10
-```bash
+```
 LambdaResNet50 Model Parameters: 15.00 M Params
 load checkpoint if needed
 start iteration
