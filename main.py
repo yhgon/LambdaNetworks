@@ -99,7 +99,6 @@ def _eval(epoch, test_loader, model, args):
     return acc / len(test_loader.dataset) * 100.
 
 
-
 def main(args):
     train_loader, test_loader = load_data(args)
 
@@ -131,6 +130,8 @@ def main(args):
 
     optimizer = optim.SGD(model.parameters(), lr=args.lr, weight_decay=args.weight_decay, momentum=args.momentum)
 
+    
+    print("load checkpoint if needed")          
     if not os.path.isdir('checkpoints'):
         os.mkdir('checkpoints')
 
