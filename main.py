@@ -167,9 +167,10 @@ def main(args):
             if global_acc < best_acc:
                 global_acc = best_acc
                 save_checkpoint(best_acc, model, optimizer, args, epoch)
-            print(' | Learning Rate: { }'.format(lr_scheduler.get_last_lr()), end='')
+            str1  = ' | Learning Rate:{}'.format(lr_scheduler.get_last_lr() )
             lr_scheduler.step()
-            print(' --> { }'.format(lr_scheduler.get_last_lr()))
+            str2 = '-->{}'.format(lr_scheduler.get_last_lr() ) 
+            print(str1, str2, end='') 
     else:
         _eval(start_epoch, test_loader, model, args)
 
