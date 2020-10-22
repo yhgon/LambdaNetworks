@@ -29,7 +29,7 @@ def parse_args(parser):
 
 
 def save_checkpoint(best_acc, model, optimizer, args, epoch):
-    print('Best Model Saving...',  end='')
+    print(' | Best Model Saving...',  end='')
     #if args.device_num > 1:
     #    model_state_dict = model.module.state_dict()
     #else:
@@ -167,7 +167,7 @@ def main(args):
             if global_acc < best_acc:
                 global_acc = best_acc
                 save_checkpoint(best_acc, model, optimizer, args, epoch)
-            print('Learning Rate: {}'.format(lr_scheduler.get_last_lr()), end='')
+            print(' | Learning Rate: {}'.format(lr_scheduler.get_last_lr()), end='')
             lr_scheduler.step()
             print(' --> {}'.format(lr_scheduler.get_last_lr()))
     else:
