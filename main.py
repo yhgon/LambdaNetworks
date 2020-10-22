@@ -3,10 +3,29 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
+import argparse
+
 import os
-from config import load_config
 from preprocess import load_data
-from model import LambdaResNet18, get_n_params
+from model import ResNet18, ResNet50, LambdaResNet18,  LambdaResNet50, LambdaResNet152,  LambdaResNet200, LambdaResNet270, LambdaResNet350,  LambdaResNet420, get_n_params
+
+
+def parse_args(parser):
+    parser.add_argument('--batch_size',      type=int,   default=128)
+    parser.add_argument('--num_workers',     type=int,   default=4)
+    parser.add_argument('--lr',              type=float, default=0.1)
+    parser.add_argument('--weight_decay',    type=float, default=1e-4)
+    parser.add_argument('--momentum',        type=float, default=0.9)
+    parser.add_argument('--cuda',            type=bool,  default=True)
+    parser.add_argument('--epochs',          type=int,   default=310)
+    parser.add_argument('--print_intervals', type=int,   default=100)
+    parser.add_argument('--evaluation',      type=bool,  default=False)
+    parser.add_argument('--checkpoints',     type=str,   default=None, help='model checkpoints path')
+    parser.add_argument('--device_num',      type=int,   default=1)
+    parser.add_argument('--model_name',      type=str,   default='LambdaResNet18')
+
+    return parser   
+
 
 
 def save_checkpoint(best_acc, model, optimizer, args, epoch):
@@ -69,10 +88,35 @@ def _eval(epoch, test_loader, model, args):
     return acc / len(test_loader.dataset) * 100.
 
 
+
 def main(args):
     train_loader, test_loader = load_data(args)
-    model = LambdaResNet18()
-    print('Model Parameters: {}'.format(get_n_params(model)))
+
+    if args.model_name == 'ResNet18' :
+        model = ResNet18()
+    elif args.model_name == 'ResNet50' : 
+        model = ResNet50()
+    elif args.model_name == 'LambdaResNet18'   : 
+        model = LambdaResNet18()
+    elif args.model_name == 'LambdaResNet50'    :
+        model = LambdaResNet50()
+    elif args.model_name == 'LambdaResNet152'    :
+        model = LambdaResNet152()
+    elif args.model_name == 'LambdaResNet200'  :
+        model = LambdaResNet200()
+    elif args.model_name == 'LambdaResNet270'  :  
+        model = LambdaResNet270()
+    elif args.model_name == 'LambdaResNet350'   : 
+        model = LambdaResNet350()
+    elif args.model_name == 'LambdaResNet420' :
+        model = LambdaResNet420()
+    else :
+        model = None
+      
+
+    print(model)
+    print('{} Model Parameters: {:4.2f} M Params'.format(args.model_name, get_n_params(model)/1000000 ) )
+
 
     optimizer = optim.SGD(model.parameters(), lr=args.lr, weight_decay=args.weight_decay, momentum=args.momentum)
 
@@ -109,6 +153,10 @@ def main(args):
 
 
 if __name__ == '__main__':
-    args = load_config()
+    parser = argparse.ArgumentParser(description='PyTorch LamdaResNet Training', 
+                                     allow_abbrev=False) 
+    parser = parse_args(parser)
+    args, _ = parser.parse_known_args()
+
     main(args)
 
