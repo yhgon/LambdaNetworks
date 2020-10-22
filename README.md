@@ -95,6 +95,22 @@ start iteration
 [Epoch: 14 100/391]  Loss: 2.3200, Acc: 10.3032  |  Correct  1332/12928   | 0.13sec/iter  12.98sec/100iter 
 [Epoch: 14 200/391]  Loss: 2.3195, Acc: 10.3467  |  Correct  2662/25728   | 0.13sec/iter  12.86sec/100iter 
 [Epoch: 14 300/391]  Loss: 2.3203, Acc: 10.1900  |  Correct  3926/38528   | 0.13sec/iter  12.78sec/100iter  52.55sec/epoch | eval | Acc: 10.140  |  1014 / 10000   | 3.85sec/eval | Learning Rate:[0.09455087117679745] -->[0.0904518046337755]
+
+...
+
+[Epoch:306 100/391]  Loss: 0.0170, Acc: 99.4585  |  Correct 12858/12928   | 0.13sec/iter  12.63sec/100iter 
+[Epoch:306 200/391]  Loss: 0.0169, Acc: 99.4520  |  Correct 25587/25728   | 0.13sec/iter  12.67sec/100iter 
+[Epoch:306 300/391]  Loss: 0.0171, Acc: 99.4342  |  Correct 38310/38528   | 0.13sec/iter  12.64sec/100iter  51.31sec/epoch | eval | Acc: 71.810  |  7181 / 10000   | 3.84sec/eval | Learning Rate:[0.00025073959002352015] -->[0.00016411790001226746]
+[Epoch:307 100/391]  Loss: 0.0180, Acc: 99.4740  |  Correct 12860/12928   | 0.13sec/iter  12.60sec/100iter 
+[Epoch:307 200/391]  Loss: 0.0184, Acc: 99.4364  |  Correct 25583/25728   | 0.13sec/iter  12.66sec/100iter 
+[Epoch:307 300/391]  Loss: 0.0175, Acc: 99.4757  |  Correct 38326/38528   | 0.13sec/iter  12.60sec/100iter  51.38sec/epoch | eval | Acc: 71.830  |  7183 / 10000   | 3.81sec/eval | Learning Rate:[0.00016411790001226746] -->[9.67108188151324e-05]
+[Epoch:308 100/391]  Loss: 0.0166, Acc: 99.4972  |  Correct 12863/12928   | 0.13sec/iter  12.55sec/100iter 
+[Epoch:308 200/391]  Loss: 0.0159, Acc: 99.5336  |  Correct 25608/25728   | 0.13sec/iter  12.61sec/100iter 
+[Epoch:308 300/391]  Loss: 0.0160, Acc: 99.5354  |  Correct 38349/38528   | 0.13sec/iter  12.70sec/100iter  51.41sec/epoch | eval | Acc: 71.810  |  7181 / 10000   | 3.83sec/eval | Learning Rate:[9.67108188151324e-05] -->[4.854433314505857e-05]
+[Epoch:309 100/391]  Loss: 0.0144, Acc: 99.5746  |  Correct 12873/12928   | 0.13sec/iter  12.61sec/100iter 
+[Epoch:309 200/391]  Loss: 0.0146, Acc: 99.5686  |  Correct 25617/25728   | 0.13sec/iter  12.56sec/100iter 
+[Epoch:309 300/391]  Loss: 0.0156, Acc: 99.5120  |  Correct 38340/38528   | 0.13sec/iter  12.57sec/100iter  51.90sec/epoch | eval | Acc: 71.910  |  7191 / 10000   | 3.82sec/eval | Learning Rate:[4.854433314505857e-05] -->[1.9637012099169403e-05]
+
 ```
 
 
