@@ -72,7 +72,7 @@ def _train(epoch, train_loader, model, optimizer, criterion, args):
         
         str1 = '\n[Epoch: {:4d}] {:6d} / {:6d} '.format( epoch, idx, iter_size)
         str2 = '| Loss: {:.3f}, Acc: {:.3f} '.format( losses / (idx + 1), acc / total * 100.) 
-        str3 = '|  Correct {:d} / Total {:d} '.format(  acc, total) 
+        str3 = '|  Correct {:d} / Total {:d} '.format(  int(acc), int(total) ) 
         str4 =' | {:4.2f}sec/iter'.format(dur_iter) 
         if idx % args.print_intervals == 0 and idx != 0:
             print( str1, str2, str3, str4, end='' )
@@ -100,7 +100,7 @@ def _eval(epoch, test_loader, model, args):
         
         str1 = '\n[Epoch: {:4d}]'.format( epoch )
         str2 = '| Acc: {:.3f} '.format( acc / len(test_loader.dataset) * 100.) 
-        str3 = '| Correct {:d} / Total {:d} '.format(  acc, len(test_loader.dataset) ) 
+        str3 = '| Correct {:d} / Total {:d} '.format(  int(acc), len(test_loader.dataset) ) 
         str4 =' | {:4.2f}sec/eval'.format(dur_eval) 
         
         print( str1, str2, str3, str4, end='' )
