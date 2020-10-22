@@ -70,10 +70,12 @@ def _train(epoch, train_loader, model, optimizer, criterion, args):
         iter_size = len(train_loader)
         
         
-
+        str1 = '\n[Epoch: {:4d}] {:6d} / {:6d} '.format( epoch, idx, iter_size)
+        str2 = '| Loss: {:.3f}, Acc: {:.3f} '.format( losses / (idx + 1), acc / total * 100.) 
+        str3 = '|  Correct {:d} / Total {:d} '.format(  acc, total) 
+        str4 =' | {:4.2f}sec/iter'.format(dur_iter) 
         if idx % args.print_intervals == 0 and idx != 0:
-            print('\n[Epoch: {0:4d}] {} / {} | Loss: {1:.3f}, Acc: {2:.3f}, Correct {3} / Total {4} | {:4.2f}sec/iter'.format(
-                epoch, idx, iter_size, losses / (idx + 1), acc / total * 100., acc, total, dur_iter), end='' )
+            print( str1, str2, str3, str4, end='' )
     toc_epoch = time.time()  
     dur_epoch = toc_epoch - tic_epoch
     print(' {:4.2}sec/epoch'.format(dur_epoch), end='')
@@ -94,8 +96,14 @@ def _eval(epoch, test_loader, model, args):
 
             acc += pred.eq(target).sum().item()
         toc_eval = time.time()
-        dur_eval = toc_eval - tic_eval            
-        print('\n[Epoch: {0:4d}], Acc: {1:.3f} {:4.2f}sec/eval'.format(epoch, acc / len(test_loader.dataset) * 100., dur_eval), end='')
+        dur_eval = toc_eval - tic_eval     
+        
+        str1 = '\n[Epoch: {:4d}]'.format( epoch )
+        str2 = '| Acc: {:.3f} '.format( acc / len(test_loader.dataset) * 100.) 
+        str3 = '| Correct {:d} / Total {:d} '.format(  acc, len(test_loader.dataset) ) 
+        str4 =' | {:4.2f}sec/eval'.format(dur_eval) 
+        
+        print( str1, str2, str3, str4, end='' )
 
     return acc / len(test_loader.dataset) * 100.
 
