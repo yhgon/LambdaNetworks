@@ -73,7 +73,7 @@ def _train(epoch, train_loader, model, optimizer, criterion, args):
         str1 = '\n[Epoch:{:3d} {:3d}/{:3d}]'.format( epoch, idx, iter_size)
         str2 = ' Loss:{:7.4f}, Acc: {:7.4f} '.format( losses / (idx + 1), acc / total * 100.) 
         str3 = '|  Correct {:5d}/{:5d} '.format(  int(acc), int(total) ) 
-        str4 =' | {:4.2f}sec/iter'.format(dur_iter) 
+        str4 =' | {:4.2f}sec/iter  {:4.2f}sec/{:d}iter '.format(dur_iter, dur_iter * args.print_interval,  args.print_interval   ) 
         if idx % args.print_intervals == 0 and idx != 0:
             print( str1, str2, str3, str4, end='' )
     toc_epoch = time.time()  
@@ -167,9 +167,9 @@ def main(args):
             if global_acc < best_acc:
                 global_acc = best_acc
                 save_checkpoint(best_acc, model, optimizer, args, epoch)
-            print(' | Learning Rate: {:5.4}'.format(lr_scheduler.get_last_lr()), end='')
+            print(' | Learning Rate: {:12.11f}'.format(lr_scheduler.get_last_lr()), end='')
             lr_scheduler.step()
-            print(' --> {:5.4}'.format(lr_scheduler.get_last_lr()))
+            print(' --> {:12.11f}}'.format(lr_scheduler.get_last_lr()))
     else:
         _eval(start_epoch, test_loader, model, args)
 
