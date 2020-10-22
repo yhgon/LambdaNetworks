@@ -1,6 +1,6 @@
 # LambdaNetworks: Modeling long-range Interactions without Attention
 
-Community Pytorch implementation for <A herf="https://openreview.net/pdf?id=xTJEN-ggl1b"> LambdaNetworks: Modeling long-range Interactions without Attention </A>. the code is based on <A href="https://github.com/leaderj1001/LambdaNetworks"> leaderj1001 </A> and maintained by Hyungon Ryu (NVIDIA AI Tech. Center).  
+Community Pytorch implementation for [LambdaNetworks: Modeling long-range Interactions without Attention ](https://openreview.net/pdf?id=xTJEN-ggl1b ). the code is based on [leaderj1001](https://github.com/leaderj1001/LambdaNetworks)'s work and maintained by Hyungon Ryu (NVIDIA AI Tech. Center).  
 
 ## Experimnets (CIFAR10)
 
