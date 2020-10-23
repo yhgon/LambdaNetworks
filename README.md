@@ -163,41 +163,33 @@ during training issue occures for evaluation accuracy.
 ```
 $ cd LambdaNetworks && python main.py --model_name LambdaResNet50 --checkpoints  ./checkpoints/checkpoint_model_best.pth
 
+[Epoch:301 100/391]  Loss: 1.3898, Acc: 56.4047  |  Correct  7292/12928   | 0.13sec/iter  13.07sec/100iter 
+[Epoch:301 200/391]  Loss: 1.2750, Acc: 57.9058  |  Correct 14898/25728   | 0.13sec/iter  12.99sec/100iter 
+[Epoch:301 300/391]  Loss: 1.2096, Acc: 59.4788  |  Correct 22916/38528   | 0.13sec/iter  12.76sec/100iter  54.45sec/epoch | eval | Acc: 63.370  |  6337 / 10000   | 4.71sec/eval | Best Model Saving... | Learning Rate:[0.1] -->[0.09755307053217621]
+[Epoch:302 100/391]  Loss: 0.9667, Acc: 66.2980  |  Correct  8571/12928   | 0.13sec/iter  12.80sec/100iter 
+[Epoch:302 200/391]  Loss: 0.9473, Acc: 66.7949  |  Correct 17185/25728   | 0.13sec/iter  13.15sec/100iter 
+[Epoch:302 300/391]  Loss: 0.9394, Acc: 67.1667  |  Correct 25878/38528   | 0.13sec/iter  12.89sec/100iter  54.40sec/epoch | eval | Acc: 66.280  |  6628 / 10000   | 4.72sec/eval | Best Model Saving... | Learning Rate:[0.09755307053217621] -->[0.0904518046337755]
+[Epoch:303 100/391]  Loss: 0.8481, Acc: 70.7225  |  Correct  9143/12928   | 0.13sec/iter  12.78sec/100iter 
+[Epoch:303 200/391]  Loss: 0.8391, Acc: 71.0044  |  Correct 18268/25728   | 0.13sec/iter  12.77sec/100iter 
+[Epoch:303 300/391]  Loss: 0.8342, Acc: 71.0548  |  Correct 27376/38528   | 0.13sec/iter  12.86sec/100iter  54.34sec/epoch | eval | Acc: 67.960  |  6796 / 10000   | 4.71sec/eval | Best Model Saving... | Learning Rate:[0.0904518046337755] -->[0.0793913236883622]
+[Epoch:304 100/391]  Loss: 0.7434, Acc: 73.6618  |  Correct  9523/12928   | 0.13sec/iter  12.78sec/100iter 
+[Epoch:304 200/391]  Loss: 0.7413, Acc: 73.7096  |  Correct 18964/25728   | 0.13sec/iter  12.81sec/100iter 
+[Epoch:304 300/391]  Loss: 0.7504, Acc: 73.4920  |  Correct 28315/38528   | 0.13sec/iter  13.03sec/100iter  54.30sec/epoch | eval | Acc: 69.010  |  6901 / 10000   | 4.75sec/eval | Best Model Saving... | Learning Rate:[0.0793913236883622] -->[0.0654543046337755]
+[Epoch:305 100/391]  Loss: 0.6535, Acc: 76.7172  |  Correct  9918/12928   | 0.13sec/iter  13.05sec/100iter 
+[Epoch:305 200/391]  Loss: 0.6584, Acc: 76.6752  |  Correct 19727/25728   | 0.13sec/iter  12.91sec/100iter 
 
-[Epoch:301 100/391]  Loss: 1.4190, Acc: 54.9814  |  Correct  7108/12928   | 0.13sec/iter  13.32sec/100iter 
-[Epoch:301 200/391]  Loss: 1.3186, Acc: 56.2228  |  Correct 14465/25728   | 0.13sec/iter  12.97sec/100iter 
-[Epoch:301 300/391]  Loss: 1.2576, Acc: 57.7087  |  Correct 22234/38528   | 0.13sec/iter  12.74sec/100iter  54.79sec/epoch | eval | Acc: 65.270  |  6527 / 10000   | 4.71sec/eval | Best Model Saving... | Learning Rate:[0.1] -->[0.09755307053217621]
-[Epoch:302 100/391]  Loss: 0.9893, Acc: 65.4007  |  Correct  8455/12928   | 0.13sec/iter  12.71sec/100iter 
-[Epoch:302 200/391]  Loss: 0.9688, Acc: 66.3518  |  Correct 17071/25728   | 0.13sec/iter  12.86sec/100iter 
-[Epoch:302 300/391]  Loss: 0.9606, Acc: 66.6373  |  Correct 25674/38528   | 0.13sec/iter  12.72sec/100iter  54.20sec/epoch | eval | Acc: 67.180  |  6718 / 10000   | 4.72sec/eval | Best Model Saving... | Learning Rate:[0.09755307053217621] -->[0.0904518046337755]
-[Epoch:303 100/391]  Loss: 0.8776, Acc: 69.2296  |  Correct  8950/12928   | 0.13sec/iter  12.75sec/100iter 
-[Epoch:303 200/391]  Loss: 0.8632, Acc: 69.5896  |  Correct 17904/25728   | 0.13sec/iter  13.06sec/100iter 
-[Epoch:303 300/391]  Loss: 0.8578, Acc: 69.8661  |  Correct 26918/38528   | 0.13sec/iter  12.70sec/100iter  54.16sec/epoch | eval | Acc: 70.280  |  7028 / 10000   | 4.72sec/eval | Best Model Saving... | Learning Rate:[0.0904518046337755] -->[0.0793913236883622]
-[Epoch:304 100/391]  Loss: 0.7736, Acc: 72.8806  |  Correct  9422/12928   | 0.13sec/iter  12.76sec/100iter 
-[Epoch:304 200/391]  Loss: 0.7693, Acc: 72.9750  |  Correct 18775/25728   | 0.13sec/iter  12.72sec/100iter 
-[Epoch:304 300/391]  Loss: 0.7809, Acc: 72.7237  |  Correct 28019/38528   | 0.13sec/iter  12.85sec/100iter  54.10sec/epoch | eval | Acc: 70.490  |  7049 / 10000   | 4.71sec/eval | Best Model Saving... | Learning Rate:[0.0793913236883622] -->[0.0654543046337755]
-[Epoch:305 100/391]  Loss: 0.6987, Acc: 75.3094  |  Correct  9736/12928   | 0.13sec/iter  12.75sec/100iter 
-[Epoch:305 200/391]  Loss: 0.6891, Acc: 75.8123  |  Correct 19505/25728   | 0.13sec/iter  12.68sec/100iter 
-[Epoch:305 300/391]  Loss: 0.6915, Acc: 75.7423  |  Correct 29182/38528   | 0.13sec/iter  12.67sec/100iter  54.03sec/epoch | eval | Acc: 72.750  |  7275 / 10000   | 4.73sec/eval | Best Model Saving... | Learning Rate:[0.0654543046337755] -->[0.05000500000000001]
-[Epoch:306 100/391]  Loss: 0.6042, Acc: 78.5195  |  Correct 10151/12928   | 0.13sec/iter  12.71sec/100iter 
-[Epoch:306 200/391]  Loss: 0.6038, Acc: 78.4787  |  Correct 20191/25728   | 0.13sec/iter  12.99sec/100iter 
-[Epoch:306 300/391]  Loss: 0.6054, Acc: 78.4079  |  Correct 30209/38528   | 0.13sec/iter  12.78sec/100iter  54.34sec/epoch | eval | Acc: 72.330  |  7233 / 10000   | 4.71sec/eval | Learning Rate:[0.05000500000000001] -->[0.03455569536622451]
-[Epoch:307 100/391]  Loss: 0.5002, Acc: 82.3020  |  Correct 10640/12928   | 0.13sec/iter  13.46sec/100iter 
-[Epoch:307 200/391]  Loss: 0.5033, Acc: 82.1517  |  Correct 21136/25728   | 0.13sec/iter  12.71sec/100iter 
-[Epoch:307 300/391]  Loss: 0.5018, Acc: 82.2077  |  Correct 31673/38528   | 0.13sec/iter  12.85sec/100iter  54.17sec/epoch | eval | Acc: 73.250  |  7325 / 10000   | 4.74sec/eval | Best Model Saving... | Learning Rate:[0.03455569536622451] -->[0.020618676311637812]
-[Epoch:308 100/391]  Loss: 0.4108, Acc: 85.4579  |  Correct 11048/12928   | 0.13sec/iter  12.89sec/100iter 
-[Epoch:308 200/391]  Loss: 0.3925, Acc: 86.1124  |  Correct 22155/25728   | 0.13sec/iter  12.80sec/100iter 
-[Epoch:308 300/391]  Loss: 0.3908, Acc: 86.1945  |  Correct 33209/38528   | 0.13sec/iter  12.76sec/100iter  54.27sec/epoch | eval | Acc: 73.680  |  7368 / 10000   | 4.73sec/eval | Best Model Saving... | Learning Rate:[0.020618676311637812] -->[0.009558195366224508]
-[Epoch:309 100/391]  Loss: 0.2914, Acc: 89.5498  |  Correct 11577/12928   | 0.13sec/iter  12.78sec/100iter 
-[Epoch:309 200/391]  Loss: 0.2875, Acc: 89.8515  |  Correct 23117/25728   | 0.13sec/iter  12.88sec/100iter 
-[Epoch:309 300/391]  Loss: 0.2849, Acc: 89.9138  |  Correct 34642/38528   | 0.13sec/iter  12.87sec/100iter  54.24sec/epoch | eval | Acc: 74.050  |  7405 / 10000   | 4.71sec/eval | Best Model Saving... | Learning Rate:[0.009558195366224508] -->[0.0024569294678237993]
-[Epoch:310 100/391]  Loss: 0.2247, Acc: 92.3113  |  Correct 11934/12928   | 0.13sec/iter  12.73sec/100iter 
-[Epoch:310 200/391]  Loss: 0.2228, Acc: 92.3119  |  Correct 23750/25728   | 0.13sec/iter  13.03sec/100iter 
-[Epoch:310 300/391]  Loss: 0.2230, Acc: 92.1953  |  Correct 35521/38528   | 0.13sec/iter  13.03sec/100iter  54.26sec/epoch | eval | Acc: 74.590  |  7459 / 10000   | 4.73sec/eval | Best Model Saving... | Learning Rate:[0.0024569294678237993] -->[0.1]
+... 
+[Epoch:382 300/391]  Loss: 0.3210, Acc: 88.7121  |  Correct 34179/38528   | 0.13sec/iter  12.69sec/100iter  53.81sec/epoch | eval | Acc: 73.650  |  7365 / 10000   | 4.68sec/eval | Learning Rate:[0.09540761797538495] -->[0.09455087117679745]
+[Epoch:383 100/391]  Loss: 0.2771, Acc: 90.2692  |  Correct 11670/12928   | 0.13sec/iter  12.78sec/100iter 
+[Epoch:383 200/391]  Loss: 0.2938, Acc: 89.7388  |  Correct 23088/25728   | 0.13sec/iter  13.00sec/100iter 
+[Epoch:383 300/391]  Loss: 0.3070, Acc: 89.2909  |  Correct 34402/38528   | 0.13sec/iter  12.91sec/100iter  54.20sec/epoch | eval | Acc: 75.440  |  7544 / 10000   | 4.68sec/eval | Learning Rate:[0.09455087117679745] -->[0.0936254378736045]
+[Epoch:384 100/391]  Loss: 0.2730, Acc: 89.9985  |  Correct 11635/12928   | 0.13sec/iter  12.60sec/100iter 
+[Epoch:384 200/391]  Loss: 0.2881, Acc: 89.5600  |  Correct 23042/25728   | 0.13sec/iter  12.76sec/100iter 
+[Epoch:384 300/391]  Loss: 0.2996, Acc: 89.2364  |  Correct 34381/38528   | 0.13sec/iter  12.71sec/100iter  53.65sec/epoch | eval | Acc: 75.290  |  7529 / 10000   | 4.67sec/eval | Learning Rate:[0.0936254378736045] -->[0.09263274501688284]
 
 ```
 
-It solve the evaluation accuracy issues. It seems that these issues came from weight decay or cosine lr schedule.
+It seems that these issues came from weight decay or cosine lr schedule.
 
 
 ## Parameters
